@@ -1,0 +1,11 @@
+.sect-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.div-btn button{
+    width: 200px;
+    height: 40px;
+}

@@ -1,0 +1,56 @@
+main{
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 300px;
+}
+
+.sect-campos{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; 
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+
+    input{
+        padding: 3%;
+        border: 1px solid var(--corBorder);
+        border-radius: 5px;
+    }
+
+    input:focus{
+        outline: none;
+        box-shadow: 2px 2px 1px var(--corPrimary);
+    }
+}
+
+.sect-btn{
+    input{
+        width: 100px;
+        height: 40px;
+        border: 1px solid var(--corBorder);
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    input:hover{
+        border: 1px solid var(--corBorder);
+        background-color: var(--corPrimary);
+        font-size: 1.2em;
+        transition: 0.2s;
+    }
+}
+
+@media (max-width: 500px) {
+    form{
+        width: 80%;
+    }
+
+}

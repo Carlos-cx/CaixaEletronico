@@ -3,62 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Bissolli\ValidadorCpfCnpj\CPF;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function auth(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'cpf' => ['required'],
+            'password' => ['required']
+        ], [
+            'cpf.required' => 'Campo CPF é obrigatório',
+            'password.required' => 'Campo Senha é obrigatório'
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $credenciais = [
+            'cpf' => $request->cpf,
+            'password' => $request->password
+        ];
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $validarCpf = new CPF($request->input('cpf'));
+        if (!$validarCpf->isValid()) {
+            return back()->withErrors(['cpf' => 'CPF inválido.']);
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if (Auth::attempt($credenciais)) {
+            $request->session()->regenerate();
+            return redirect('home');
+        } else {
+            return redirect()->back()->withErrors(['cpf' => 'CPF ou Senha incorretos.']);
+        }
     }
 }

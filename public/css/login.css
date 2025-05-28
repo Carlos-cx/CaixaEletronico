@@ -9,6 +9,10 @@ form{
     width: 300px;
 }
 
+.sect-conteudo{
+    width: 400px;
+}
+
 .sect-campos{
     display: flex;
     flex-direction: column;
@@ -49,8 +53,11 @@ form{
 }
 
 @media (max-width: 500px) {
-    form{
+    .sect-conteudo{
         width: 80%;
     }
 
+    form{
+        width: 80%;
+    }
 }

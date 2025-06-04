@@ -1,0 +1,53 @@
+.table{
+    border-collapse: collapse;
+    width: 500px;
+}
+
+tr, th, td{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.column-valor{
+    text-align: left;
+    padding-left: 7%;
+}
+
+
+.div-btn{
+    margin-top: 20px;
+    height: 55px;
+    display: flex;
+}
+
+.btn{
+    width: 100px;
+    height: 40px;
+    border: 1px solid var(--corBorder);
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: var(--corButton);
+}
+
+.btn:hover{
+    background-color: var(--corPrimary);
+    font-size: 1.1em;
+    transition: 0.2s;
+}
+
+@media(max-width: 700px){
+    .table{
+        width: 90%;
+    }
+}
+
+@media(max-width: 500px){
+    .table{
+        width: 100%; 
+    }
+
+    .column-valor{
+        text-align: left;
+        padding-left: 2%;
+    }
+}

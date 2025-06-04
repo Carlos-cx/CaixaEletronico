@@ -4,25 +4,23 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endsection
 
-@section('conteudo')
+@section('title', 'Login')
 
-    @if ($mensagem = Session::get('erro'))
-        {{$mensagem}}
-    @endif
-
-    @if ($errors->any())
+@if ($errors->any())
+    @section('flash_msg')
         @foreach ($errors->all() as $error)
             {{$error}} <br>
         @endforeach
-        
-    @endif
-    
-    <form action="{{ route('login.auth') }}" method="post">
+    @endsection
+@endif
+
+@section('conteudo')
+    <form action="{{ route('auth.login') }}" method="post">
         @csrf
         <section class="sect-campos">
             <div class="campo">
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" id="cpf">
+                <input type="text" name="cpf" id="cpf" maxlength="11">
             </div>
 
             <div class="campo">
@@ -30,6 +28,10 @@
                 <input type="password" name="password" id="senha">
             </div>
 
+        </section>
+
+        <section class="sect-conta">
+                <p>Não tem uma Conta? <a href="{{ route('register')}}">Criar Conta</a></p>
         </section>
 
         <section class="sect-btn">

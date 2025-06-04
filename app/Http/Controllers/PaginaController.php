@@ -2,22 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Conta;
+use App\Models\Operacao;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaginaController extends Controller
 {
     public function login()
     {
-        return view('login');
+        return view('auth/login');
+    }
+
+    public function register()
+    {
+        return view('auth/register');
     }
 
     public function home()
     {
-        return view('home');
+        return view('site/home');
     }
 
-    public function estrutura()
+    public function saldo()
     {
-        return view('layout/estrutura');
+        $conta = Conta::where('id_user', '=', Auth::user()->id)->first();
+        return view('site/saldo', ['saldo' => $conta->saldo]);
+    }
+
+    public function extrato()
+    {
+        $conta = Conta::where('id_user', '=', Auth::user()->id)->first();
+        $banco = Operacao::where('id_conta', '=', $conta->id)->get();
+        return view('site/extrato', ['banco' => $banco]);
+    }
+
+    public function deposito()
+    {
+        return view('site/deposito');
+    }
+
+    public function saque()
+    {
+        return view('site/saque');
     }
 }

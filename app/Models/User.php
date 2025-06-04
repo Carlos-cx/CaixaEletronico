@@ -11,4 +11,9 @@ class User extends Authenticatable
         'cpf',
         'password'
     ];
+
+    public function banco()
+    {
+        return $this->hasOne(Conta::class, 'id_user');
+    }
 }

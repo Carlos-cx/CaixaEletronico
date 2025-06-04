@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('operacoes', function (Blueprint $table) {
             $table->id();
             $table->string('tipo', 8);
-            $table->string('valor', 12, 2);
+            $table->decimal('valor', 12, 2);
             $table->foreignId('id_conta')->constrained('contas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

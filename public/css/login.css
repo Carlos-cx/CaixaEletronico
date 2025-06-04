@@ -1,7 +1,7 @@
 main{
     align-items: center;
 }
-
+ 
 form{
     display: flex;
     flex-direction: column;
@@ -35,6 +35,10 @@ form{
     }
 }
 
+.sect-conta a{
+    color: var(--corPrimary);
+}
+
 .sect-btn{
     input{
         width: 100px;
@@ -42,12 +46,13 @@ form{
         border: 1px solid var(--corBorder);
         border-radius: 5px;
         font-size: 1em;
+        background-color: var(--corButton);
     }
 
     input:hover{
         border: 1px solid var(--corBorder);
         background-color: var(--corPrimary);
-        font-size: 1.2em;
+        font-size: 1.15em;
         transition: 0.2s;
     }
 }

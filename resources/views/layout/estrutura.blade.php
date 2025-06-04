@@ -16,10 +16,15 @@
         </footer>
 
         <main>
+            <section class="sect-flash_msg">
+                @yield('flash_msg')
+            </section>
+            
             @yield('conteudo')
-
         </main>
     </section>
+
+    @yield('script')
     
 </body>
 </html>

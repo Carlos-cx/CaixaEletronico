@@ -6,8 +6,6 @@
 
 @section('title', 'Sacar')
 
-@section('Usuario', auth()->user()->nomeCompleto)
-
 @if ($errors->any())
     @section('flash_msg')
         @foreach ($errors->all() as $error)

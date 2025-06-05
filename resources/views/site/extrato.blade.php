@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/extrato.css')}}">
 @endsection
 
-@section('Usuario', auth()->user()->nomeCompleto)
-
 @section('conteudo')
     <table class="table">
         <tr>

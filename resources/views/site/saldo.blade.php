@@ -6,8 +6,6 @@
 
 @section('title', 'Saldo')
 
-@section('Usuario', auth()->user()->nomeCompleto)
-
 @section('conteudo')
     <p>Seu saldo atual é: <span data-format="brl">{{$saldo}}</span></p>
     <a href="{{ route('site.home')}}">

@@ -1,17 +1,60 @@
+main{
+    gap: 10px;
+}
+
+.div-dados{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--corButton);
+    border-radius: 8px;
+    padding: 8px;
+    width: 234px;
+
+    p{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+#btn-saldo-visivel{
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    height: 26px;
+    img{
+        width: 26px;
+        height: 26px;
+    }
+}
+
+#btn-saldo-visivel:hover{
+    transition: 0.4s;
+    transform: scale(1.2);
+    background-color: rgb(255, 255, 255);
+}
+
+#imgVisivelOff{
+    display: none;
+}
+
 .lista-btn{
     list-style-type: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    width: 30%;
+    width: 250px;
 }
 
 .item-btn {
     border: 1px solid var(--corBorder);
     border-radius: 8px;
     background-color: var(--corButton);
-    width: 100%;
+    width: 98%;
     
     height: 40px;
     align-content: center;
@@ -19,7 +62,7 @@
     a{
         text-decoration: none;
         color: black;
-        padding: 3%;
+        padding: 8px;
     }
 }
 
@@ -33,9 +76,5 @@
     footer{
         flex-direction: column;
         align-items: center;
-    }
-
-    .item-btn{
-        width: 200px;
     }
 }

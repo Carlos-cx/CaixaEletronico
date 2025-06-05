@@ -21,7 +21,8 @@ class PaginaController extends Controller
 
     public function home()
     {
-        return view('site/home');
+        $conta = Conta::where('id_user', '=', Auth::user()->id)->first();
+        return view('site/home', ['saldo' => $conta->saldo]);
     }
 
     public function saldo()

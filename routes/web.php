@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContaController;
 use App\Http\Controllers\PaginaController;
-use App\Models\Conta;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PaginaController::class, 'login']);
@@ -18,7 +17,6 @@ Route::post('auth/register', [AuthController::class, 'register'])->name('auth.re
 
 Route::middleware('auth')->group(function () {
     Route::get('site/home', [PaginaController::class, 'home'])->name('site.home');
-    Route::get('site/saldo', [PaginaController::class, 'saldo'])->name('site.saldo');
     Route::get('site/extrato', [PaginaController::class, 'extrato'])->name('site.extrato');
     Route::get('site/deposito', [PaginaController::class, 'deposito'])->name('site.deposito');
     Route::get('site/saque', [PaginaController::class, 'saque'])->name('site.saque');
